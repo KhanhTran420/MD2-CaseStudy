@@ -1,5 +1,7 @@
-public class IntrovertBuses extends Buses{
-    private String BusStop;         // Số tuyến
+package model;
+
+public class IntrovertBuses extends Buses {
+    private String busStop;         // Số tuyến
     private double numberKm;        // Số km đi dc
 
     public IntrovertBuses(){
@@ -7,22 +9,22 @@ public class IntrovertBuses extends Buses{
     }
 
     public IntrovertBuses(String busStop, double numberKm) {
-        this.BusStop = busStop;
+        this.busStop = busStop;
         this.numberKm = numberKm;
     }
 
-    public IntrovertBuses(String id, String code, String nameOfDriver, String numberOfCar, double profit, double cost, String busStop, double numberKm) {
-        super(id, code, nameOfDriver, numberOfCar, profit, cost);
-        this.BusStop = busStop;
+    public IntrovertBuses(String id, String nameOfDriver, String numberOfCar, double profit, double cost, String busStop, double numberKm) {
+        super(id, nameOfDriver, numberOfCar, profit, cost);
+        this.busStop = busStop;
         this.numberKm = numberKm;
     }
 
     public String getBusStop() {
-        return BusStop;
+        return busStop;
     }
 
     public void setBusStop(String busStop) {
-        this.BusStop = busStop;
+        this.busStop = busStop;
     }
 
     public double getNumberKm() {
@@ -35,8 +37,8 @@ public class IntrovertBuses extends Buses{
 
     @Override
     public String toString() {
-        return "IntrovertBuses{" +
-                "BusStop='" + BusStop + '\'' +
+        return "model.IntrovertBuses{" +
+                "busStop='" + busStop + '\'' +
                 ", numberKm=" + numberKm +
                 "} " + super.toString();
     }
