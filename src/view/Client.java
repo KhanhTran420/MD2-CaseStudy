@@ -38,6 +38,12 @@ public class Client {
                 Buses newBuses = creatNewBuses();
                 BusesManager.addNewBuses(newBuses);
                     break;
+                case 3:
+                    editBuses();
+                    break;
+                case 4:
+                    deleteBuses();
+                    break;
                 case 0:
                     System.exit(0);
                 default:
@@ -129,15 +135,83 @@ public class Client {
         double costNT = inputCostNT.nextDouble();
 
         Scanner inputLocal = new Scanner(System.in);
-        System.out.println("Nhập biển số xe ngoại thành: ");
+        System.out.println("Nhập địa điểm đến xe ngoại thành: ");
         String local = inputLocal.nextLine();
 
         Scanner inputKm = new Scanner(System.in);
-        System.out.println("Nhập giá vé xe: ");
+        System.out.println("Nhập số km đi được: ");
         double km = inputKm.nextDouble();
 
         Buses newBuses = new ExtrovertBuses(idNT,nameDriverNT,numberCarNT,profitNT,costNT,local,km);
         return newBuses;
 
+    }
+
+    public static void deleteBuses(){
+        Scanner input = new Scanner(System.in);
+        int choice = -1;
+        System.out.println("1. Xóa thông tin xe theo mã: ");
+        System.out.println("2. Xóa thông tin theo tên tài xế: ");
+        System.out.println("Nhập lựa chọn: ");
+        choice = input.nextInt();
+        if (choice == 1){
+            deleteBusesByID();
+        }
+        if (choice == 2){
+            deleteBusesByName();
+        }
+    }
+
+    public static void deleteBusesByID() {
+        Scanner inputID = new Scanner(System.in);
+        System.out.println(" Nhập ID thông tin xe muốn xóa: ");
+        String ID = inputID.nextLine();
+
+        int deleteIndex = BusesManager.findBusesIndexById(ID);
+        BusesManager.removeBusesByIndex(deleteIndex);
+    }
+
+    public static void  deleteBusesByName(){
+        Scanner inputName = new Scanner(System.in);
+        System.out.println("Nhập tên tài xế bạn muốn xóa");
+        String name = inputName.nextLine();
+
+        int deleteName = BusesManager.findBusesIndexByName(name);
+        BusesManager.removeBusesByIndex(deleteName);
+    }
+
+    public static  void editBuses(){
+        Scanner input = new Scanner(System.in);
+        int choice = -1;
+        System.out.println("1. Sửa thông tin xe theo id: ");
+        System.out.println("2. Sửa thông tin xe theo tên tài xế: ");
+        choice = input.nextInt();
+        if (choice == 1){
+            editBusesByID();
+        }
+        if (choice == 2){
+            editBusesByName();
+        }
+
+    }
+
+    public static void editBusesByID(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhập ID thông tin xe bạn muốn sửa: ");
+        String editID = input.nextLine();
+
+        Buses editBuses = creatNewBuses() ;
+        int editIndex = BusesManager.findBusesIndexById(editID);
+        BusesManager.editBusesByIndex(editIndex,editBuses);
+    }
+
+    public static void editBusesByName(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhập thông tin tài xế xe bạn muốn sửa: ");
+        String editName = input.nextLine();
+
+        Buses editBuses = creatNewBuses() ;
+        int editIndex = BusesManager.findBusesIndexByName(editName);
+        BusesManager.editBusesByIndex(editIndex,editBuses);
     }
 }

@@ -1,37 +1,24 @@
 package controller;
 
 import model.Buses;
+import model.IntrovertBuses;
 import storage.BusesFromFileBinary;
 import storage.IEbusesData;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BusesManager {
 
     public static IEbusesData busesData = new BusesFromFileBinary();
     public static ArrayList<Buses> busesList = busesData.readFile();
 
-//   public static void  displayBuses(model.Buses[] buses){
-//       for (model.Buses e: buses){
-//           System.out.println(e);
-//       }
-//   }
-//
-//   public static model.Buses[] addNewBuses(model.Buses[] buses, model.Buses newBuses){
-//       model.Buses[] newBusesList = new model.Buses[buses.length+1];
-//       for (int i = 0; i < buses.length ; i++) {
-//           newBusesList[i] = buses[i];
-//       }
-//       newBusesList[buses.length] = newBuses;
-//       return newBusesList;
-//   }
 
     public static void addNewBuses(Buses buses) {
         busesList.add(buses);
         try {
             busesData.writeFile(busesList);
-
         }
          catch (IOException e) {
             e.printStackTrace();
