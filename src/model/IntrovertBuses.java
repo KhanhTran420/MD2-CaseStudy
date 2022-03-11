@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class IntrovertBuses extends Buses {
     private String busStop;         // Số tuyến
     private double numberKm;        // Số km đi dc
@@ -13,8 +15,8 @@ public class IntrovertBuses extends Buses {
         this.numberKm = numberKm;
     }
 
-    public IntrovertBuses(String id, String nameOfDriver, String numberOfCar, double profit, double cost, String busStop, double numberKm) {
-        super(id, nameOfDriver, numberOfCar, profit, cost);
+    public IntrovertBuses(String id, LocalDate time, String nameOfDriver, String numberOfCar, double cost, String busStop, double numberKm) {
+        super(id, time, nameOfDriver, numberOfCar, cost);
         this.busStop = busStop;
         this.numberKm = numberKm;
     }
@@ -37,9 +39,10 @@ public class IntrovertBuses extends Buses {
 
     @Override
     public String toString() {
-        return "model.IntrovertBuses{" +
-                "busStop='" + busStop + '\'' +
-                ", numberKm=" + numberKm +
-                "} " + super.toString();
+        return "Chuyến xe nội thành: " +
+                super.toString()+
+                ", Số trạm dừng: " + busStop  +
+                ", Số km đi được: " + numberKm
+                ;
     }
 }

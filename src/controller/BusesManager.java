@@ -19,17 +19,13 @@ public class BusesManager {
         busesList.add(buses);
         try {
             busesData.writeFile(busesList);
-        }
-         catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-
-
-
-    public static void removeBusesByIndex (int index) {
+    public static void removeBusesByIndex(int index) {
         busesList.remove(index);
         try {
             busesData.writeFile(busesList);
@@ -74,4 +70,29 @@ public class BusesManager {
         }
     }
 
+//    public static void findBusesByIndex(int index){
+//        busesList.get(index);
+//        try {
+//            busesData.writeFile(busesList);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public static void findBook() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("nhập tên Tài xế bạn muốn tìm: ");
+        String nameDriver = scanner.nextLine();
+        for (int i = 0; i < busesList.size(); i++) {
+//             nameDriver = busesList.get(i).getNameOfDriver();
+            if (busesList.get(i).getNameOfDriver().equals(nameDriver)) {
+                System.out.println(busesList.get(i).toString());
+            }
+            else {
+                System.out.println("không tìm thấy");
+            }
+        }
+
+
+    }
 }

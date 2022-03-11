@@ -1,20 +1,22 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public abstract class Buses implements Serializable {
     private String id, nameOfDriver, numberOfCar;
-    private double profit, cost;
+    private double cost;
+    public LocalDate time;
 
     public Buses() {
     }
 
-    public Buses(String id, String nameOfDriver, String numberOfCar, double profit, double cost) {
+    public Buses(String id,LocalDate time, String nameOfDriver, String numberOfCar, double cost) {
         this.id = id;                         // STT
-
+        this.time = time;                     // ngày xuất vé
         this.nameOfDriver = nameOfDriver;     // Tên tài xế
         this.numberOfCar = numberOfCar;       // Biển số xe
-        this.profit = profit;                 // Doanh thu
+
         this.cost = cost;                     // Giá vé
     }
 
@@ -26,7 +28,13 @@ public abstract class Buses implements Serializable {
         this.id = id;
     }
 
+    public LocalDate getTime() {
+        return time;
+    }
 
+    public void setTime(int year, int month, int day) {
+        this.time = LocalDate.of(year,month,day);
+    }
 
     public String getNameOfDriver() {
         return nameOfDriver;
@@ -44,13 +52,7 @@ public abstract class Buses implements Serializable {
         this.numberOfCar = numberOfCar;
     }
 
-    public double getProfit() {
-        return profit;
-    }
 
-    public void setProfit(double profit) {
-        this.profit = profit;
-    }
 
     public double getCost() {
         return cost;
@@ -62,13 +64,12 @@ public abstract class Buses implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Buses{" +
-                "Id='" + id + '\'' +
-
-                ", NameOfDriver='" + nameOfDriver + '\'' +
-                ", NumberOfCar='" + numberOfCar + '\'' +
-                ", Profit=" + profit +
-                ", cost=" + cost +
-                '}';
+        return "Chuyến xe: " +
+                ",Id= " + id  +
+                ", Tên của tài xế: " + nameOfDriver  +
+                ", Biển số xe: " + numberOfCar  +
+                ", Giá xe: " + cost +
+                ", Ngày đi: " + time
+                ;
     }
 }

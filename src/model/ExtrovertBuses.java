@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class ExtrovertBuses extends Buses {
     private String local;              // Nơi đến
     private double dayTravel;          // Số ngày đi
@@ -13,8 +15,8 @@ public class ExtrovertBuses extends Buses {
         this.dayTravel = dayTravel;
     }
 
-    public ExtrovertBuses(String id, String nameOfDriver, String numberOfCar, double profit, double cost, String local, double dayTravel) {
-        super(id, nameOfDriver, numberOfCar, profit, cost);
+    public ExtrovertBuses(String id, LocalDate time, String nameOfDriver, String numberOfCar, double cost, String local, double dayTravel) {
+        super(id, time, nameOfDriver, numberOfCar, cost);
         this.local = local;
         this.dayTravel = dayTravel;
     }
@@ -37,9 +39,10 @@ public class ExtrovertBuses extends Buses {
 
     @Override
     public String toString() {
-        return "model.ExtrovertBuses{" +
-                "Local='" + local + '\'' +
-                ", DayTravel=" + dayTravel +
-                "} " + super.toString();
+        return "Chuyến xe ngoại thành: " +
+                super.toString()+
+                ", Địa điểm: " + local +
+                ", thời gian chuyến đi: " + dayTravel
+                  ;
     }
 }
