@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 
 public class IntrovertBuses extends Buses {
-    private String busStop;         // Số tuyến
+    private String busStop;         // Chặng đường
     private double numberKm;        // Số km đi dc
 
     public IntrovertBuses(){

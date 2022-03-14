@@ -70,29 +70,48 @@ public class BusesManager {
         }
     }
 
-//    public static void findBusesByIndex(int index){
-//        busesList.get(index);
-//        try {
-//            busesData.writeFile(busesList);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
-    public static void findBook() {
+
+    public static void findBuses() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("nhập tên Tài xế bạn muốn tìm: ");
         String nameDriver = scanner.nextLine();
+        boolean check = false;
         for (int i = 0; i < busesList.size(); i++) {
 //             nameDriver = busesList.get(i).getNameOfDriver();
             if (busesList.get(i).getNameOfDriver().equals(nameDriver)) {
                 System.out.println(busesList.get(i).toString());
+                check = true;
+                break;
             }
-            else {
-                System.out.println("không tìm thấy");
+        }
+            if (!check){
+                System.out.println("Ò!!! không tìm thấy ông tài xế nào");
             }
         }
 
 
+
+
+    public static void buyTicket(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("nhập tên người mua: ");
+        String buyName = scanner.nextLine();
+
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Nhập ngày: ");
+        int day = scanner1.nextInt();
+
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("Nhập Tháng: ");
+        int month = scanner1.nextInt();
+
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.println("Nhập năm: ");
+        int year = scanner1.nextInt();
+
+        Scanner scanner4 = new Scanner(System.in);
+        System.out.println("Nhập chuyến xe muốn đi: ");
+        String name = scanner4.nextLine();
     }
 }

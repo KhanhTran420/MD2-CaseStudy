@@ -8,6 +8,7 @@ public abstract class Buses implements Serializable {
     private double cost;
     public LocalDate time;
 
+
     public Buses() {
     }
 
@@ -61,6 +62,8 @@ public abstract class Buses implements Serializable {
     public void setCost(double cost) {
         this.cost = cost;
     }
+
+//    public abstract double getProfit();
 
     @Override
     public String toString() {

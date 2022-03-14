@@ -43,7 +43,7 @@ public class Client {
                     deleteBuses();
                     break;
                 case 5:
-                   BusesManager.findBook();
+                   BusesManager.findBuses();
                    break;
                 case 0:
                     System.exit(0);
@@ -159,7 +159,11 @@ public class Client {
         System.out.println("Nhập số km đi được: ");
         double km = inputKm.nextDouble();
 
-        Buses newBuses = new ExtrovertBuses(idNT, LocalDate.of(year,month,day), nameDriverNT, numberCarNT, costNT, local, km);
+        Scanner inputQuantity = new Scanner(System.in);
+        System.out.println("Nhập số người đi: ");
+        int quantity = inputQuantity.nextInt();
+
+        Buses newBuses = new ExtrovertBuses(idNT, LocalDate.of(year,month,day), nameDriverNT, numberCarNT, costNT, local, km, quantity);
         return newBuses;
 
     }
@@ -234,20 +238,5 @@ public class Client {
     }
 
 
-//public static int findBuses(Buses[] buses, String inputName){
-//    int index = -1;
-//    for (int i = 0; i < buses.length ; i++) {
-//        String nameDriver = buses[i].getNameOfDriver();
-//        if(nameDriver.equals(inputName)){
-//            index = i;
-//        }
-//    }
-//    if (index>=0){
-//        System.out.println(inputName + " price: " + buses[index].getCost());
-//    }
-//    else {
-//        System.out.println(inputName +" Not found");
-//    }
-//    return index;
-//}
+
 }
